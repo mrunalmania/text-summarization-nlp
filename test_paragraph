@@ -1,0 +1,36 @@
+######## 1 ################
+We are currently experiencing another gold rush in AI. Billions are being invested in AI startups across every imaginable industry and business function. Google, Amazon, Microsoft and IBM are in a heavyweight fight investing over $20 billion in AI in 2016. Corporates are scrambling to ensure they realise the productivity benefits of AI ahead of their competitors while looking over their shoulders at the startups. China is putting its considerable weight behind AI and the European Union is talking about a $22 billion AI investment as it fears losing ground to China and the US.
+AI is everywhere. From the 3.5 billion daily searches on Google to the new Apple iPhone X that uses facial recognition to Amazon Alexa that cutely answers our questions. Media headlines tout the stories of how AI is helping doctors diagnose diseases, banks better assess customer loan risks, farmers predict crop yields, marketers target and retain customers, and manufacturers improve quality control. And there are think tanks dedicated to studying the physical, cyber and political risks of AI.
+
+
+######## 2 ################
+
+Computer vision is an interdisciplinary field that has been gaining huge amounts of traction in the recent years(since CNN) and self-driving cars have taken centre stage. Another integral part of computer vision is object detection. Object detection aids in pose estimation, vehicle detection, surveillance etc. The difference between object detection algorithms and classification algorithms is that in detection algorithms, we try to draw a bounding box around the object of interest to locate it within the image. Also, you might not necessarily draw just one bounding box in an object detection case, there could be many bounding boxes representing different objects of interest within the image and you would not know how many beforehand.
+Object detection is one of the areas of computer vision that is maturing very rapidly. Thanks to deep learning! Every year, new algorithms/ models keep on outperforming the previous ones. In-fact, one of the latest state of the art software system for object detection was just released last week by Facebook AI team. The software is called Detectron that incorporates numerous research projects for object detection and is powered by the Caffe2 deep learning framework
+
+
+######## 3 ################
+Object Detection is a common Computer Vision problem which deals with identifying and locating object of certain classes in the image. Interpreting the object localisation can be done in various ways, including creating a bounding box around the object or marking every pixel in the image which contains the object (called segmentation).
+Object detection was studied even before the breakout popularity of CNNs in Computer Vision. While CNNs are capable of automatically extracting more complex and better features, taking a glance at the conventional methods can at worst be a small detour and at best an inspiration.
+
+
+######## 4 ################
+Natural language processing (NLP) is a branch of machine learning that deals with processing, analyzing, and sometimes generating human speech (“natural language”).
+There’s no doubt that humans are still much better than machines at deterimining the meaning of a string of text. But in data science, we’ll often encounter data sets that are far too large to be analyzed by a human in a reasonable amount of time. We may also encounter situations where no human is available to analyze and respond to a piece of text input. In these situations, we can use natural language processing techniques to help machines get some understanding of the text’s meaning (and if necessary, respond accordingly).
+For example, natural language processing is widely used in sentiment analysis, since analysts are often trying to determine the overall sentiment from huge volumes of text data that would be time-consuming for humans to comb through. It’s also used in advertisement matching—determining the subject of a body of text and assigning a relevant advertisement automatically. And it’s used in chatbots, voice assistants, and other applications where machines need to understand and quickly respond to input that comes in the form of natural human language.
+
+
+######## 5 ################
+It is unfortunate that the farmers protesting against the new three farm laws have rejected the concessions offered by the government and taken the maximalist stand that their demand must be met in toto.
+
+They have also threatened to intensify the siege they have laid to the national capital, if the government does not repeal the laws. This is politics of blackmail, cloaked in the pantomime garb of the brave son of the soil taking on giant corporates.
+
+The government has offered that the minimum support price (MSP) system would continue, besides to withdraw the wholly undemocratic denial of right to legal remedy in the courts for disputes under the laws. MSP, per se, does more good rather than harm. But there should be no promise of open-ended procurement at MSP or foisting MSP on private traders.
+
+The State today procures about a third of wheat and rice output; and State-owned grain mountains grow and rot at the same time. The money spent on procurement, loading, transport, unloading, storage, financing, spoilage and pilferage of grain far in excess of what is needed for food security is money that could be spent on healthcare, education, reformed policing, the storage, processing and transport of crops other than grain.
+
+The farmers’ agitation represents the struggle of the rural elite to retain their stranglehold over a large chunk of State resources wholly irrelevant to food security, at the expense of the working poor. Nor is excess procurement the only source of rich farmer coddling: the money spent on free power, free irrigation and subsidised farm inputs must be reckoned, too.
+
+The bogey of wily corporate jumbos trampling innocent farmers underfoot is raised to keep the conflict with the poor out of sight. Companies are not just a fact of life but drivers of prosperity as well. The point is for farmers to create organisational forms that would allow farm produce to be marketed with nous and bargaining power.
+
+The government, on its part, could offer proactive support for diversifying farming away from grain, to everyone’s benefit.

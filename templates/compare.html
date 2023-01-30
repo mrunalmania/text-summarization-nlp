@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <!-- Required meta tags always come first -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- Responsive erb page maker-->
+     <meta http-equiv="x-ua-compatible" content="ie=edge">
+ 
+     <!-- Bootstrap CSS -->
+     <!-- build:css css/main.css -->
+    <link rel="icon" type="image/png" href="../static/img/logo123.png" />
+    <link rel="stylesheet" href="{{url_for('static',filename='node_modules/bootstrap/dist/css/bootstrap.min.css')}}">
+    
+    <link rel="stylesheet" href="{{url_for('static',filename='node_modules/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='node_modules/bootstrap-social/bootstrap-social.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style-old.css')}}">
+     <!-- endbuild -->
+
+
+    <title>Text Summarization</title>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="{{url_for('index')}}"><img src="../static/img/logo123.png" height="30" width="41"></a>
+           <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('index')}}"><span class="fa fa-home fa-lg"> Home</span></a></li>
+                    <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"> Compare</span></a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"> Contact</span></a></li> -->
+                </ul>
+           </div>
+        </div>
+    </nav>
+    
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <div class="col-12 col-sm-6">
+                <h1>Text Summarization</h1>
+                <p>We rigorously transform sophisticated, complex, and long texts into clear and easy-to-read
+                summaries, getting rid of
+                unstructured information that may confuse and tire readers. We eliminate information overload
+                and ensure smooth natural
+                language generation.</p>
+                </div>
+                <div class="col-12 col-sm align-self-center">
+                    <img src="../static/img/logo123.png" alt="logo" class="logo img-fluid">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <ol class="col-12 breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+                <li class="breadcrumb-item active">Compare</li>
+            </ol>
+            <div class="col col-sm">
+               <h3>Compare</h3>
+               <hr>
+            </div>
+        </div>
+
+        <div class="row row-content">
+            <div class="col col-sm-6">
+                <h2 class="title-heading">Original content</h2>
+                <form method="POST" action="/comparer">
+                    <textarea name="rawtext" class="col col-11" rows="10" required="true" id="styled"
+                        onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')"
+                        placeholder="Enter your paragraph here..."></textarea>
+        
+                    <br />
+                    <button class="btn btn-danger btn-rounded" type="reset">Clear</button>
+                    <button class="btn btn-success btn-rounded" type="submit">Summarize</button>
+                </form>
+            </div>
+            <div class="col col-sm-6">
+                <h2 class="title-heading">Content URL</h2>
+                <form method="POST" action="/analyze_compare_url">
+                    <input type="text" name="raw_url" placeholder="Enter URL Here" required="true" style="width: 100%">
+                    <br>
+                    <br>
+                    <button class="btn btn-danger btn-rounded" type="reset">Clear</button>
+                    <button class="btn btn-success btn-rounded" type="submit">Summarize</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="row row-content">
+            <div class="col-12 col-sm">
+                <h2>Compare Summary</h2>
+                <!--ACCORDIAN-->
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" role="tab" id="peterhead">
+                            <h3 class="mb-0">
+                                <a data-toggle="collapse" data-target="#peter">
+                                    Spacy <small>Summarizer</small>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="collapse show" id="peter" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>
+                                    <b> Reading Time:</b> <span style="color:#0091EA;">{{ summary_reading_time }} min </span>
+                                    &nbsp;
+                                    <b> Total words:</b> <span style="color:#0091EA;">{{spacy_words}} </span>
+                                </p>
+                                <p class="d-none d-sm-block">{{ final_summary_spacy }}</p>
+                            </div>                            
+                        </div>
+                    </div>
+ 
+                    <div class="card">
+                        <div class="card-header" role="tab" id="dannyhead">
+                            <h3 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" data-target="#danny">
+                                    Gensim <small>Summarizer</small>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="collapse" id="danny" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>
+                                    <b> Reading Time:</b> <span style="color:#0091EA;">{{ summary_reading_time_gensim }} min </span>
+                                    &nbsp;
+                                    <b> Total words:</b> <span style="color:#0091EA;">{{genism_words}} </span>
+                                </p>
+                                <p class="d-none d-sm-block">{{final_summary_gensim}}</p>
+                            </div>                            
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="agumbehead">
+                            <h3 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" data-target="#agumbe">
+                                    Text Rank <small>Summarizer</small>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="collapse" id="agumbe" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>
+                                    <b> Reading Time:</b> <span style="color:#0091EA;">{{summary_reading_time_page_rank }} min </span>
+                                    &nbsp;
+                                    <b> Total words:</b> <span style="color:#0091EA;">{{page_rank_words}} </span>
+                                </p>
+                                <p class="d-none d-sm-block">{{final_summary_page_rank}}</p>
+                            </div>                            
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" role="tab" id="albertohead">
+                            <h3 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" data-target="#alberto">
+                                    Sumy <small>Summarizer</small>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="collapse" id="alberto" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>
+                                    <b> Reading Time:</b> <span style="color:#0091EA;">{{ summary_reading_time_sumy }} min </span> 
+                                    &nbsp;
+                                    <b> Total words:</b> <span style="color:#0091EA;">{{sumy_words}} </span>
+                                </p>
+                                <p class="d-none d-sm-block">{{ final_summary_sumy }}</p>
+                            </div>                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+       </div>    
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{url_for('index')}}">Home</a></li>
+                        <li><a href="{{url_for('compare')}}">Compare</a></li>
+    
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5 address">
+                    <h5>Our Address</h5>
+                    <address>
+                        13,Gokul park society<br>
+                        Near gajera school,Katargam<br>
+                        SURAT- INDIA<br>
+                        <i class="fa fa-phone fa-lg"></i>.: +91 1234 5678<br>
+                        <i class="fa fa-fax fa-lg"></i>: +91 8765 4321<br>
+                        <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">confusion@food.net</a>
+                    </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i
+                                class="fa fa-google-plus fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i
+                                class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i
+                                class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i
+                                class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i
+                                class="fa fa-youtube fa-lg"></i></a>
+                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <p>© Copyright </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- build:js js/main.js -->
+<script src="{{url_for('static',filename='node_modules/jquery/dist/jquery.slim.min.js')}}"></script>
+<script src="{{url_for('static',filename='node_modules/popper.js/dist/umd/popper.min.js')}}"></script>
+<script src="{{url_for('static',filename='node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="static/js/scripts.js"></script>
+    <!-- endbuild -->
+
+    
+</body>
+
+</html>
